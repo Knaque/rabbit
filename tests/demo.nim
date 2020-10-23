@@ -1,11 +1,27 @@
 import ../src/rabbit
-# You'll need to have Fidget installed for this demo.
 import fidget
 
-# Try loading a new theme!
 var theme = readTheme("june.svg")
 
-proc drawMain() = 
+when defined(dd):
+  # Compiling with -d:dd allows you to drag and drop .svg files into the window
+  # to set a new theme. However, this won't work unless you do the following:
+  #
+  # nimble install staticglfw@#head
+  # nimble uninstall fidget
+  # nimble install https://github.com/knaque/fidget
+
+  import fidget/opengl/base, staticglfw
+
+  proc dropCallback(window: Window, count: cint, paths: cstringArray) {.cdecl.} =
+    theme = readTheme($paths[0])
+
+proc loadProc() =
+  when defined(dd):
+    window.setDropCallback(dropCallback)
+  else: discard
+
+proc drawProc() = 
   rectangle "f_high":
     box 32, 32, 32, 32
     cornerRadius 16
@@ -44,4 +60,4 @@ proc drawMain() =
     box 0, 0, 192, 128
     fill theme.background.toHtmlHex()
 
-startFidget(draw=drawMain, w=192, h=128)
+startFidget(draw=drawProc, load=loadProc, w=192, h=128)
