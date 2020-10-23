@@ -1,5 +1,5 @@
 import ../src/rabbit
-import fidget
+import fidget, fidget/opengl/base
 
 var theme = readTheme("june.svg")
 
@@ -11,8 +11,7 @@ when defined(dd):
   # nimble uninstall fidget
   # nimble install https://github.com/knaque/fidget
 
-  import fidget/opengl/base, staticglfw
-
+  import staticglfw
   proc dropCallback(window: Window, count: cint, paths: cstringArray) {.cdecl.} =
     theme = readTheme($paths[0])
 
@@ -60,4 +59,4 @@ proc drawProc() =
     box 0, 0, 192, 128
     fill theme.background.toHtmlHex()
 
-startFidget(draw=drawProc, load=loadProc, w=192, h=128)
+startFidget(draw=drawProc, load=loadProc, w=192, h=128, mainLoopMode=RepaintOnFrame)
