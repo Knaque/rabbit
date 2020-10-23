@@ -1,5 +1,5 @@
 ## Rabbit brings the
-## [Hundred Rabbits theme ecosystem](https://github.com/hundredrabbits/Themes) 
+## [Hundred Rabbits theme ecosystem](https://github.com/hundredrabbits/Themes)
 ## to Nim.
 ## 
 ## Usage is really simple.

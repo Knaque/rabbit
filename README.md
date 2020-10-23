@@ -4,9 +4,9 @@
 
 `nimble install rabbit`
 
----
-
-Rabbit brings the Hundred Rabbits theme ecosystem to Nim.
+Rabbit brings the
+[Hundred Rabbits theme ecosystem](https://github.com/hundredrabbits/Themes)
+to Nim.
 
 Usage is really simple.
 ```nim
