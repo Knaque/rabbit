@@ -13,12 +13,18 @@ Usage is really simple.
 import rabbit
 
 # Load a theme!
-var theme = readTheme("nord.svg")
+var theme = readTheme("june.svg")
 
 # Get the colors!
 echo theme.background
-echo theme.f_high.toHtmlHex()
-echo theme.b_low.toHtmlRgba()
+echo theme.f_high.toHex()
+echo theme.f_med.toHexAlpha()
+echo theme.f_low.toHtmlHex()
+echo theme.f_inv.toHtmlHexTiny()
+echo theme.b_high.toHtmlRgb()
+echo theme.b_med.toHtmlRgba()
+echo theme.b_low
+echo theme.b_inv.toHex()
 ```
 
 Rabbit doesn't support the JS target, mainly because doing so would be
